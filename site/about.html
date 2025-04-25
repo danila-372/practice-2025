@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cogni - О проекте</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href=".\site.html" class="logo">
+            <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 25a75 75 0 1 0 0 150 75 75 0 0 0 0-150zm0 20a55 55 0 1 1 0 110 55 55 0 0 1 0-110z" 
+                      fill="#3498db"/>
+                <path d="M100 45c30 0 55 24.8 55 55 0 30.3-25 55-55 55" 
+                      fill="none" 
+                      stroke="#f0f8ff" 
+                      stroke-width="12"/>
+            </svg>
+            Cogni
+        </a>
+        <nav class="nav">
+            <a href=".\site.html">Главная</a>
+            <a href=".\team.html">Участники</a>
+            <a href=".\book.html">Журнал</a>
+            <a href=".\resource.html">Ресурсы</a>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <div class="about-card">
+            <h2>О проекте Cogni</h2>
+            <p>Cogni — это инновационная социальная платформа, разработанная специально для студентов и сотрудников Московского Политехнического Университета. Наш проект сочетает в себе современные технологии психологического анализа и социальные взаимодействия.</p>
+            
+            <h3>Основные цели платформы:</h3>
+            <ul>
+                <li>Создание сообщества на основе психологической совместимости</li>
+                <li>Помощь в профессиональном и личностном развитии</li>
+                <li>Упрощение коммуникации между студентами и преподавателями</li>
+                <li>Формирование проектных команд с учетом личностных особенностей</li>
+            </ul>
+
+            <div class="university-badge">Московский Политех</div>
+        </div>
+
+        <div class="about-card">
+            <h2>Технология MBTI</h2>
+            <p>MBTI (Myers-Briggs Type Indicator) — это популярная методика оценки личности, широко используемая в:</p>
+            <ul>
+                <li>Профессиональной ориентации</li>
+                <li>Управлении персоналом</li>
+                <li>Психологическом консультировании</li>
+                <li>Образовательных программах</li>
+            </ul>
+
+            <p>Преимущества использования MBTI в Cogni:</p>
+            <ul>
+                <li>Точное определение сильных сторон личности</li>
+                <li>Персонализированные рекомендации по развитию</li>
+                <li>Оптимизация учебного процесса</li>
+                <li>Улучшение командного взаимодействия</li>
+            </ul>
+        </div>
+
+        <div class="chart-container">
+            <h3 class="chart-title">Ожидаемое распределение пользователей</h3>
+            <canvas id="genderChart"></canvas>
+            <div class="chart-legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #0000FF;"></div>
+                    <span>Мужчины</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FF1493;"></div>
+                    <span>Женщины</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Cogni. Московский Политехнический Университет</p>
+        <p>Социальная сеть нового поколения</p>
+        <p>Основано на методологии Myers-Briggs Type Indicator®</p>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('genderChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Студенты', 'Сотрудники'],
+                datasets: [{
+                    label: 'Мужчины',
+                    data: [53, 42],
+                    backgroundColor: '#0000FF',
+                    borderWidth: 0
+                },
+                {
+                    label: 'Женщины',
+                    data: [35, 23],
+                    backgroundColor: '#FF1493',
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: context => `${context.dataset.label}: ${context.raw}%`
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        grid: { display: false }
+                    },
+                    y: {
+                        stacked: true,
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: value => value + '%'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
