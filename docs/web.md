@@ -39,3 +39,8 @@
 - **Журнал** (новости о нашем проекте);
 - **Дополнительные материалы** на странице "Ресурсы" (ссылки на полезные ресурсы);
 
+## Фото
+![image](https://github.com/user-attachments/assets/a0410588-1d66-409a-b710-19b5eb5d80c0)
+![image](https://github.com/user-attachments/assets/5e4b5ca4-f423-45c1-967c-17f69eb861d1)
+
+
